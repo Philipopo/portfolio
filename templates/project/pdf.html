@@ -1,0 +1,22 @@
+{% if files %}
+ {% for file in files %}
+<td>{{ file.name }}</td>
+<td>
+    {% if file.cover %}
+    <img src="{{ file.cover.url }}" alt="{{ file.name }}"
+    style="width:100px; height:100px">
+    {% else %}
+    <h2> No cover</h2>
+    {% endif %}<br>
+    {% if file.pdf %}
+<a href="{{ file.pdf.url }}"  >Download pdf</a>
+{% else %}
+<h3>nopdf</h3>
+{% endif %}
+</td><br><hr><br>
+{% endfor %}
+
+
+
+{% else %}
+{% endif %}

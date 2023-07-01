@@ -1,0 +1,20 @@
+{% if category_project %}
+
+<h2>Categories</h2>
+<h3>{{ cats }}</h3>
+{% for all_items in category_project %}
+<br>   
+<td>{{ all_items.name }}</td>
+<td>{{ all_items.date }}</td>
+<td>{{ all_items.link }}</td>
+<td>{{ all_items.content }}</td>
+
+<br>
+
+   
+</tr>
+<a href="{% url 'add_project' %}" class="btn button">Add project</a>
+{% endfor %}
+{% else %}
+<h2>SORRY PAGE DOESN'T EXIST</h2>
+{% endif %}
