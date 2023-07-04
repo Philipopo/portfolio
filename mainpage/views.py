@@ -44,6 +44,9 @@ def dashboard(request):
     contacts = Contact.objects.all()
     reviews = Reviews.objects.order_by('-id')
     form = ContactForm()
+    email = None
+    content = None
+    recipient = None
     
     
     context={
@@ -56,18 +59,20 @@ def dashboard(request):
         
         email = request.POST['email']
         content = request.POST['content']
+        recipient = 'philipboluwatife0@gmail.com'
+    
+    
+        send_email(email, recipient, content)
+       
         
         
     else:
         
-        messages.success(request, 'Project saved succesfully')
+        messages.success(request, 'email sent succesfully')
 
     
-    recipient = 'philipboluwatife0@gmail.com'
-    
-
     send_email(email, recipient, content)
-
+    
    
     return render(request,'project/dashboard.html', context, )
 
